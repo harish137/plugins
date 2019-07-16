@@ -1,0 +1,1 @@
+Plugins has different type of Jquery/Js plugins working examples

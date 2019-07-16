@@ -1,0 +1,80 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Video.js Fullscreen</title>
+
+    <!--   <link href="node_modules/video.js/dist/video-js.css" rel="stylesheet"> -->
+    <link href="https://vjs.zencdn.net/5.16.0/video-js.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            position: relative;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .info {
+            background-color: #eee;
+            border: thin solid #333;
+            border-radius: 3px;
+            padding: 0 5px;
+            text-align: center;
+            opacity: 0.5;
+        }
+
+        .videojs-background-wrap {
+            overflow: hidden;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: -998;
+        }
+    </style>
+</head>
+
+<body>
+    <% include partials/navbar %>
+    <% include partials/content %>
+    <% include partials/footer %>
+
+    <div class="info">
+        <p>
+            You can see the Video.js Background plugin in action below.
+            Look at the source of this page to see how to use it with your videos.
+        </p>
+    </div>
+
+    <video autoPlay="false" id="bg-video" class="video-js vjs-default-skin"
+        style="position:absolute;top:0;left:0;overflow:hidden;z-index:-998;" height="100%" width="100%"
+        poster="http://video-js.zencoder.com/oceans-clip.png" loop>
+        <p>
+            Your browser doesn't support video. Please <a href="http://browsehappy.com/">upgrade your browser</a> to see
+            the example.
+        </p>
+        <!--       <source src="https://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+      <source src="https://vjs.zencdn.net/v/oceans.webm" type="video/webm"> -->
+        <source src="makecake.webm" type="video/webm">
+        <source src="makecake.mp4" type="video/mp4">
+    </video>
+    <script src="https://vjs.zencdn.net/5.16.0/video.min.js"></script>
+    <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+    <script src="https://rawgit.com/matthojo/videojs-Background/master/dist/videojs-background.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.3.3/videojs-contrib-hls.min.js"></script>
+    <script>
+        // fire up the plugin
+        // videojs('bg-video').Background();
+        videojs('bg-video').Background({
+            volume: '0',
+            mediaType: 'html5',
+            autoPlay: 'false'
+        });
+
+
+    </script>
+</body>
+
+</html>
